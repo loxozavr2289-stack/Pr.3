@@ -1,0 +1,29 @@
+def computer_guess(n):
+    print(f"Загадайте число від 1 до {n}, а я спробую його вгадати.")
+    input("Натисніть Enter, коли будете готові...")
+    
+    low = 1
+    high = n
+    attempts = 0
+    
+    while True:
+        attempts += 1
+        guess = (low + high) // 2
+        print(f"Моя спроба: {guess}")
+        
+        feedback = input("Це ваше число? (введіть 'так', 'більше', 'менше'): ").lower()
+        
+        if feedback == 'так':
+            print(f"Я вгадав ваше число {guess} за {attempts} спроб!")
+            break
+        elif feedback == 'більше':
+            low = guess + 1
+        elif feedback == 'менше':
+            high = guess - 1
+        else:
+            print("Введіть: так , більше , менше.")
+
+# Запуск гри
+if __name__ == "__main__":
+    n = int(input("Введіть максимальне число n: "))
+    computer_guess(n)
